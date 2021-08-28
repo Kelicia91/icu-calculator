@@ -1,5 +1,5 @@
 {
-  "name": "icu-calculators",
+  "name": "icu-calculator",
   "version": "1.0.0",
   "description": "reference=https://intensivecarenetwork.com/Calculators/Files/Apache4.html",
   "main": "index.js",
