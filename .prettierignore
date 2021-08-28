@@ -1,2 +1,4 @@
 # Ignore artifacts:
-dist
+dist/
+origin/
+definition.ts
