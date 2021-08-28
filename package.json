@@ -1,0 +1,25 @@
+{
+  "name": "icu-calculators",
+  "version": "1.0.0",
+  "description": "reference=https://intensivecarenetwork.com/Calculators/Files/Apache4.html",
+  "main": "index.js",
+  "scripts": {
+    "pretty-check": "prettier --check .",
+    "pretty": "prettier --write .",
+    "lint": "tslint --project .",
+    "lint-verify": "tslint-config-prettier-check ./tslint.json",
+    "build": "tsc",
+    "start": "node dist",
+    "up": "npm run build && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kelicia",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.7.4",
+    "prettier": "2.3.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.4.2"
+  }
+}
