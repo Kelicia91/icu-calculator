@@ -1,3 +1,5 @@
+import * as def from './definition'
+
 enum GCSEyes {
   Null = 0,
   Never,
@@ -128,12 +130,32 @@ function calculate({
   admissionInfo,
   admissionDiagnosis,
 }: ICUInput): ICUOutput {
+
+  const { x, y } = convert(admissionDiagnosis)
+  // @todo: apachcalc()
+
   return {
     apacheIVScore: 286,
     apsScore: 239,
     estimatedMortalityRate: 100,
     estimatedLengthOfStay: 1.2,
-  };
+  }
+}
+
+function convert(
+  gno: AdmissionDiagnosis
+): { x: string; y: string } {
+  switch(gno.operative) {
+    case AdmissionDiagnosisOperative.NonOperative: return {
+      x: def.v2meddia[gno.systemIndex][gno.diagnosisIndex],
+      y: def.vmeddia[gno.systemIndex][gno.diagnosisIndex]
+    }
+    case AdmissionDiagnosisOperative.PostOperative: return {
+      x: def.v2chidia[gno.systemIndex][gno.diagnosisIndex],
+      y: def.vchidia[gno.systemIndex][gno.diagnosisIndex]
+    }
+    default: return { x: "0", y: "0" }
+  } // switch
 }
 
 export function mirror(): string {
